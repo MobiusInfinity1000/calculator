@@ -25,7 +25,7 @@ html{
 .calc-body{
     /* overflow: hidden; */
     width: 450px;
-    height: 85vh;
+    height: 620px;
     margin:auto;
     margin-top:2%; 
     /* flex-shrink: 0; */
@@ -40,8 +40,7 @@ html{
  .display{
     grid-column-start: 1;
     grid-column-end: 4;
-    background-color:black;
-    padding-top:10%;
+    background-image: linear-gradient(to right top, #000000, #1a1a1a, #2e2c2c, #434040, #595555);    padding-top:10%;
     padding-bottom:2%;
     padding-left: 1%;
     padding-right: 5%;
@@ -67,6 +66,7 @@ html{
 
 }
 .grid-item{
+    font-size: 3em;
     position: relative;
     text-align: center;
     cursor: pointer;
@@ -91,12 +91,14 @@ span{
 
 .clear{
     grid-column-start: 1;
+    font-size: 1.9em;
     grid-column-end: 3;
     background-color: #0085FF;
 }
 
 .backspace{
     grid-column-start: 3;
+    font-size: 1.9em;
     grid-column-end: 5;
     background-color: #8565FF;
 }
