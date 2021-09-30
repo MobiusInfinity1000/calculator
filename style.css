@@ -1,4 +1,6 @@
 html{
+    position: relative;
+    min-height: 100%;
      /* background-image: linear-gradient(to right top, #64e8de, #00d3f4, #00b8ff, #0095ff, #8a64eb);  */
      background-image: linear-gradient(to right top, #ff00d4, #b37bff, #2cabff, #00c9ff, #00ddff);     /* background-image: linear-gradient(to right top, #2d388a, #2155a7, #0773c2, #0090da, #00aeef);    
     background-attachment: fixed; */
@@ -21,12 +23,22 @@ html{
 	}
 }
 
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75vh;
+    min-height: 500px;
+    padding: 10px;
+    margin-top: 50px;
+  }
+
 
 .calc-body{
+    flex-shrink: 0;
     /* overflow: hidden; */
-    width: 450px;
     height: 620px;
-    margin:auto;
+    /* margin:auto; */
     margin-top:2%; 
     /* flex-shrink: 0; */
     /* min-width: 300px;*/
@@ -38,12 +50,10 @@ html{
 }
 
  .display{
-    grid-column-start: 1;
-    grid-column-end: 4;
     background-image: linear-gradient(to right top, #000000, #1a1a1a, #2e2c2c, #434040, #595555);    padding-top:10%;
     padding-bottom:2%;
     padding-left: 1%;
-    padding-right: 5%;
+    padding-right: 1%;
     margin:auto;
     margin-top: 0;
     margin-bottom: 0;
@@ -111,6 +121,9 @@ span{
     background-color: #0088AE;
 }
 .footer{
+    position: absolute;
+    margin:0;
+    margin-bottom:0;
     margin:auto;
     margin-top:2%;
     text-align: center;
