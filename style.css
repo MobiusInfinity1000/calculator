@@ -1,16 +1,16 @@
 html{
     position: relative;
-    min-height: 100%;
+    /* min-height: 100%; */
      /* background-image: linear-gradient(to right top, #64e8de, #00d3f4, #00b8ff, #0095ff, #8a64eb);  */
-     background-image: linear-gradient(to right top, #ff00d4, #b37bff, #2cabff, #00c9ff, #00ddff);     /* background-image: linear-gradient(to right top, #2d388a, #2155a7, #0773c2, #0090da, #00aeef);    
-    background-attachment: fixed; */
-    background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
-    height: 100vh;
+     background-image: linear-gradient(to right top, #ff00d4, #b37bff, #2cabff, #00c9ff, #00ddff);    
+      /* background-image: linear-gradient(to right top, #2d388a, #2155a7, #0773c2, #0090da, #00aeef); */
+     background-attachment: fixed;
+	/* animation: gradient 15s ease infinite; */
+    /* height: 100vh; */
     color:white;
     font-family: 'Comfortaa', cursive;
 }
-
+/* 
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
@@ -21,62 +21,86 @@ html{
 	100% {
 		background-position: 0% 50%;
 	}
-}
+} */
 
 main{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 75vh;
-    min-height: 500px;
-    padding: 10px;
-    margin-top: 50px;
+    height: 70vh;
+    margin:auto;
   }
 
 
 .calc-body{
-    flex-shrink: 0;
+    /* flex-shrink: 0; */
+    flex:1 0 450px;
     /* overflow: hidden; */
-    height: 620px;
-    /* margin:auto; */
-    margin-top:2%; 
+    height: 90%;
+    min-width: 450px;
+    max-width: 450px;
+    margin:auto; 
+    /* margin-top: -3%; */
     /* flex-shrink: 0; */
     /* min-width: 300px;*/
-    border-style: solid;
+    /* border-style: solid;
     border-width: 1%;
     border-radius: 5px;
-    border-color: #FFD04D;
+    border-color: #FFD04D; */
     
 }
 
  .display{
-    background-image: linear-gradient(to right top, #000000, #1a1a1a, #2e2c2c, #434040, #595555);    padding-top:10%;
-    padding-bottom:2%;
-    padding-left: 1%;
-    padding-right: 1%;
+    background-image: linear-gradient(to right top, #000000, #1a1a1a, #2e2c2c, #434040, #595555);    
     margin:auto;
     margin-top: 0;
     margin-bottom: 0;
-    width: 93%;
     border-radius: 6px;
-    font-size:3em;
-    overflow:hidden;
+    width: 93%;
+    /* overflow:hidden; */
+}
+
+.displaySpan{
+    margin: 2%;
+}
+
+.digits{
+    padding-top:3%;
+    padding-bottom:2%;
+    padding-left: 1%;
+    padding-right: 1%;
+    font-size: 30px;
+    font-size: 3.5vw;
+    width:100%;
+    text-align: right;
+}
+
+.operations{
+    width:100%;
+    background:transparent;
+    text-align: right;
+    font-size: 2em;
+    padding: 2%;
+    padding-right:-5%;
+    padding-left: 0;
+
 }
 
 .grid-container{
     
     margin: auto;
-    margin:2%;
+    /* margin:2%; */
+    margin-top:1%;
     height:80%;
     width:90%;
     display:grid;
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     column-gap:2%;
     row-gap: 2%;
 
 }
 .grid-item{
-    font-size: 3em;
+    font-size: 350%;
     position: relative;
     text-align: center;
     cursor: pointer;
@@ -88,7 +112,7 @@ main{
 
 }
 
-span{
+.btn{
     position: absolute;
   left: 50%;
   top: 50%;
@@ -101,14 +125,14 @@ span{
 
 .clear{
     grid-column-start: 1;
-    font-size: 1.9em;
+    font-size: 200%;
     grid-column-end: 3;
     background-color: #0085FF;
 }
 
 .backspace{
     grid-column-start: 3;
-    font-size: 1.9em;
+    font-size: 200%;
     grid-column-end: 5;
     background-color: #8565FF;
 }
@@ -120,11 +144,15 @@ span{
 .clear:hover{
     background-color: #0088AE;
 }
-.footer{
+footer{
     position: absolute;
-    margin:0;
-    margin-bottom:0;
-    margin:auto;
-    margin-top:2%;
-    text-align: center;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+  font-size: 20px;
 }

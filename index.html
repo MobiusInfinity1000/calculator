@@ -11,30 +11,33 @@
 <body>
     <main class = "main">
         <div class = "calc-body">
-            <div class = "display">10110843483934343</div>
+            <div class = "display">
+                <div class = "operations"><span class = "displaySpan" id = "calcHistoryDisplay"></span></div>
+                <div class = "digits"><span class = "displaySpan" id = "inputDisplay">0</span></div>
+            </div>
             <div class = "grid-container">
-                <div class = "grid-item clear"><span>CLEAR</span></div>
-                <div class = "grid-item backspace"><span>BACKSPACE</span></div>
-                <div class = "grid-item number"><span>7</span></div>
-                <div class = "grid-item number"><span>8</span></div>
-                <div class = "grid-item number"><span>9</span></div>
-                <div class = "grid-item operator"><span>+</span></div>
-                <div class = "grid-item number"><span>4</span></div>
-                <div class = "grid-item number"><span>5</span></div>
-                <div class = "grid-item number"><span>6</span></div>
-                <div class = "grid-item operator"><span>-</span></div>
-                <div class = "grid-item number"><span>1</span></div>
-                <div class = "grid-item number"><span>2</span></div>
-                <div class = "grid-item number"><span>3</span></div>
-                <div class = "grid-item operator"><span>x</span></div>
-                <div class = "grid-item decimal"><span>.</span></div>
-                <div class = "grid-item number"><span>0</span></div>
-                <div class = "grid-item equals"><span>=</span></div>
-                <div class = "grid-item operator"><span>÷</span></div>
+                <div class = "grid-item clear" id = "clearBtn" data-key = "Escape"><span class = "btn">CLEAR</span></div>
+                <div class = "grid-item backspace" id = "backspaceBtn" data-key="Backspace"><span class = "btn">BACKSPACE</span></div>
+                <div class = "grid-item number"><span class = "btn" data-key="7">7</span></div>
+                <div class = "grid-item number"><span class = "btn" data-key="8">8</span></div>
+                <div class = "grid-item number"><span class = "btn" data-key="9">9</span></div>
+                <div class = "grid-item operator"><span class = "btn" id ="addBtn" data-key="+">+</span></div>
+                <div class = "grid-item number"><span class = "btn" data-key="4">4</span></div>
+                <div class = "grid-item number"><span class = "btn" data-key="5">5</span></div>
+                <div class = "grid-item number"><span class = "btn" data-key="6">6</span></div>
+                <div class = "grid-item operator"><span class = "btn" id ="subtractBtn" data-key="-">-</span></div>
+                <div class = "grid-item number"><span class = "btn" data-key="1">1</span></div>
+                <div class = "grid-item number"><span class = "btn" data-key="2">2</span></div>
+                <div class = "grid-item number"><span class = "btn" data-key="3">3</span></div>
+                <div class = "grid-item operator"><span class = "btn" id ="timesBtn" data-key="*">x</span></div>
+                <div class = "grid-item decimal"><span class = "btn" data-key=".">.</span></div>
+                <div class = "grid-item number"><span class = "btn" data-key="0">0</span></div>
+                <div class = "grid-item equals" id = "equals" data-key="Enter" data-key2 = "="><span class = "btn">=</span></div>
+                <div class = "grid-item operator"><span class = "btn" id ="divideBtn" data-key="/">÷</span></div>
             </div>
         </div>
     </main>
-    <footer class = "footer">Created by Mobius Infinity</footer>
+    <!-- <footer class = "footer">Created by Mobius Infinity</footer> -->
 </body>
 <script src="calculator.js"></script>
 </html>
