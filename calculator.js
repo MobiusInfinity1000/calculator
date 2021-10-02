@@ -152,7 +152,11 @@ function func_multiply(a,b){
 };
 
 function func_divide(a,b){
+    if (b===0){
+        alert("LMAO, you can't divide by 0!");
+    } else {
     return a/b;
+    };
 };
 
 function operate(functionName, a, b){
