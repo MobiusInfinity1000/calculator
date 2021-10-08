@@ -6,6 +6,7 @@ let operatorButtons = document.getElementsByClassName("operator");
 let clearButton = document.getElementById("clearBtn");
 let backspaceButton = document.getElementById("backspaceBtn");
 let equalsButton = document.getElementById("equals");
+let decimalButton = document.getElementById("decimal");
 // let addButton = document.getElementById("addBtn");
 // let subtractButton = document.getElementById("subtractBtn");
 // let multiplyButton = document.getElementById("multiplyBtn");
@@ -57,10 +58,18 @@ function getSymbolOperator(inputString){
 
 //insert numbers into mainDisplay
 function appendInput(){
-    mainDisplay.textContent = parseInt(currentNumber.toString() + this.textContent,10);
-    currentNumber = parseInt(mainDisplay.textContent,10);
+    mainDisplay.textContent = parseFloat(currentNumber.toString() + this.textContent,10);
+    currentNumber = parseFloat(mainDisplay.textContent,10);
     reClickFlag = true;
 };
+
+//decimal functionality
+function decimalInput(){
+    mainDisplay.textContent = currentNumber.toString() + ".";
+    currentNumber = mainDisplay.textContent;
+    // currentNumber = parseFloat(mainDisplay.textContent, 10);
+}
+decimalButton.addEventListener('click', decimalInput);
 
 
 function activatekeyboardNumbers(e){
@@ -68,8 +77,8 @@ function activatekeyboardNumbers(e){
     if (!key) return; //exits if key outside scope entered
     //console.log(e.key);
     if (Number.isNaN(parseInt(e.key,10))) return; //exits if non-number entered
-    mainDisplay.textContent = parseInt(currentNumber.toString() + e.key,10);
-    currentNumber = parseInt(mainDisplay.textContent,10);
+    mainDisplay.textContent = parseFloat(currentNumber.toString() + e.key,10);
+    currentNumber = parseFloat(mainDisplay.textContent,10);
     reClickFlag = true;
 }
 
@@ -79,6 +88,8 @@ function clearInput(){
     firstNumber = null;
     secondNumber = 0;
     result = null;
+    operatorUsed = "";
+    symbolOperator = "";
     calcDisplay.textContent = "";
     mainDisplay.textContent = currentNumber;
 }
@@ -89,7 +100,7 @@ function backSpaceInput(){
         currentNumber = 0;
         mainDisplay.textContent = currentNumber;
     } else{
-        currentNumber = parseInt(currentNumber.toString().substring(0,currentNumber.toString().length-1),10);
+        currentNumber = parseFloat(currentNumber.toString().substring(0,currentNumber.toString().length-1),10);
         mainDisplay.textContent = currentNumber;
     };
     
@@ -115,6 +126,7 @@ function activatekeyboardOperands(e){
     if (!key) return; //exits if key outside scope entered
     //console.log(e.key);
     if (!Number.isNaN(parseInt(e.key,10))) return; //exits if non-number entered
+    if (e.key === ".") return;  //doesn't apply to decimals
     
     //same as getOperand
     if (reClickFlag === true){
@@ -131,12 +143,17 @@ function activatekeyboardOperands(e){
 }
 
 function calcResult(){
+
     result = Math.round(operate(operatorUsed, firstNumber, currentNumber)*10000)/10000; //rounding to 4dp
-    mainDisplay.textContent = result;
-    calcDisplay.textContent = firstNumber + symbolOperator + currentNumber + "=";
-    currentNumber = result;
-    firstNumber = null;
+    if (isNaN(result) === false) {
+        mainDisplay.textContent = result;
+        calcDisplay.textContent = firstNumber + symbolOperator + currentNumber + "=";
+        currentNumber = result;
+        firstNumber = null;
+    };
 };
+
+
 
 //basic functions
 function func_add(a,b){
@@ -154,6 +171,7 @@ function func_multiply(a,b){
 function func_divide(a,b){
     if (b===0){
         alert("LMAO, you can't divide by 0!");
+        return 0;
     } else {
     return a/b;
     };
@@ -175,6 +193,7 @@ for (let i=0; i<operatorButtons.length; i++){
 clearButton.addEventListener("click", clearInput);
 backspaceButton.addEventListener("click", backSpaceInput);
 equalsButton.addEventListener("click", calcResult);
+decimalButton.addEventListener('click', decimalInput);
 
 
 //keyboard Event listeners
@@ -184,6 +203,7 @@ document.addEventListener('keydown', (e) => {
     (e.key === "Enter") ? calcResult()
     : (e.key === "Backspace") ? backSpaceInput()
     : (e.key === "Escape") ? clearInput()
+    : (e.key === ".") ? decimalInput()
     : null;
 });
 
